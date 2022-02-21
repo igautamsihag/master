@@ -31,3 +31,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/order',[\App\Http\Controllers\OrderController::class,'index'])->name('order');
+
+Route::post('create/order', [\App\Http\Controllers\OrderController::class,'order']);
