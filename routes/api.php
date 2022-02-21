@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route::get('/order', function (){
+//   return ['order_status' => "Shipped"];
+//});
+Route::post('/store',[\App\Http\Controllers\UserController::class,'store'])->name('store');
+
+Route::post('/create/store', function (Request $request){
+    return $request->all();
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
