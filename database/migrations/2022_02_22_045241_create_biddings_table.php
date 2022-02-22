@@ -15,7 +15,8 @@ class CreateBiddingsTable extends Migration
     {
         Schema::create('biddings', function (Blueprint $table) {
             $table->id();
-            $table->text('company_name');
+
+            $table->text('name');
             $table->bigInteger('bidding_price');
             $table->timestamps();
         });

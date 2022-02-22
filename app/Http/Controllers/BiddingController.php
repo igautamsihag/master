@@ -14,7 +14,7 @@ class BiddingController extends Controller
      */
     public function index()
     {
-        return Bidding::all();
+        return Bidding::with('order')->get();
     }
 
     /**
@@ -36,6 +36,8 @@ class BiddingController extends Controller
     public function bidding(Request $request)
     {
         $bidding = new Bidding();
+        $bidding->user_id=$request->user_id;
+        $bidding->order_id=$request->order_id;
         $bidding->company_name=$request->company_name;
         $bidding->bidding_price=$request->bidding_price;
         $bidding->save();
